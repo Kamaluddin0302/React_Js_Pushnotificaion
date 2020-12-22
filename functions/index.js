@@ -6,9 +6,6 @@ admin.initializeApp();
 exports.sendNotifications = functions.database
   .ref("/messages/token/")
   .onUpdate(async (snapshot) => {
-    // Notification details.
-    //   const text = snapshot.val().text;
-    //   console.log(text)
     const payload = {
       notification: {
         title: `New message`,
@@ -36,6 +33,5 @@ exports.sendNotifications = functions.database
       const response = await admin.messaging().sendToDevice(tokens, payload);
       console.log(response);
       await cleanupTokens(response, tokens);
-      console.log("Notifications have been sent");
     }
   });

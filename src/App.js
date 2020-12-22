@@ -44,7 +44,7 @@ function App() {
       .database()
       .ref("/")
       .child("messages/token")
-      .update({ text: "dfjndfj" })
+      .update({ text: Math.random() })
       .then(() => {
         alert("successfull");
       })
