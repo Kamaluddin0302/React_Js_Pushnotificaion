@@ -18,7 +18,7 @@ import { GlobalProvider } from "./context/GlobalState";
 import firebase from "./config/firebase";
 
 function App() {
-  //  let [token , setToken] = useState("")
+  let [token, setToken] = useState("");
   const messaging = firebase.messaging();
   messaging.requestPermission().then(() => {
     console.log(messaging.getToken());
@@ -43,9 +43,8 @@ function App() {
     firebase
       .database()
       .ref("/")
-      .child("messages")
-      .child("token")
-      .update({ notofication: true })
+      .child("messages/token")
+      .update({ text: "dfjndfj" })
       .then(() => {
         alert("successfull");
       })

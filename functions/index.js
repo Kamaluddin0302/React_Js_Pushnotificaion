@@ -4,7 +4,7 @@ admin.initializeApp();
 
 // Sends a notifications to all users when a new message is posted.
 exports.sendNotifications = functions.database
-  .ref("/messages/{msgID}/")
+  .ref("/messages/token/")
   .onUpdate(async (snapshot) => {
     // Notification details.
     //   const text = snapshot.val().text;
